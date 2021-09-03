@@ -11,6 +11,6 @@ export const getAllUser = async () : Promise<string> => {
     });
     return json.data;
   } catch (e) {
-    return e;
+    return 'Error';
   }
 };
