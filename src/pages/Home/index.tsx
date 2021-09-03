@@ -5,7 +5,7 @@ import {
 const Home = () => {
     return (
         <Container>
-            <h1>Home</h1>
+            <h1>Social Media Home</h1>
         </Container>
     )
 }
