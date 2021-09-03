@@ -5,9 +5,9 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <h1>
+      <span>
         Social Media Skeleton
-      </h1>
+      </span>
     </>
   );
 }
