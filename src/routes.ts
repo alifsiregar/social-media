@@ -1,6 +1,7 @@
 import {
     Home,
-    UserDetail
+    UserDetail,
+    PostDetail
 } from './pages';
 
 export const routes = [
@@ -16,5 +17,10 @@ export const routes = [
         exact: false,
         component: UserDetail,
     },
-
+    {
+        name: 'Post Detail',
+        path: '/user/:id/post/:postId',
+        exact: false,
+        component: PostDetail,
+    },
 ]
