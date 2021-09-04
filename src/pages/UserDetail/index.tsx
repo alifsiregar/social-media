@@ -16,9 +16,9 @@ import UserAlbumsCard from '../../components/UserAlbumsCard';
 
 const UserDetail = ({ match }: RouteComponentProps<{id:string}>) => {
 
-    const [detailLoading, setDetailLoading] = useState<boolean>(false);
-    const [postsLoading, setPostsLoading] = useState<boolean>(false);
-    const [albumLoading, setAlbumLoading] = useState<boolean>(false);
+    const [detailLoading, setDetailLoading] = useState<boolean>(true);
+    const [postsLoading, setPostsLoading] = useState<boolean>(true);
+    const [albumLoading, setAlbumLoading] = useState<boolean>(true);
     const [user, setUser] = useState<{
         id: number;
         username: string;
@@ -60,35 +60,23 @@ const UserDetail = ({ match }: RouteComponentProps<{id:string}>) => {
         title: string;
     }[]>([]);
 
-    const requestDetailUser = async () : Promise<void> => {
-        setDetailLoading(true);
-        await getUserDetail(match.params.id).then((res:any) => {
-            setUser(res);
-            setDetailLoading(false);
-        })
-    };
-
-    const requestPostsUser = async () : Promise<void> => {
-        setPostsLoading(true);
-        await getUserPosts(match.params.id).then((res:any) => {
-            setPosts(res);
-            setPostsLoading(false);
-        });
-    };
-
-    const requestAlbumsUser = async () : Promise<void> => {
-        setAlbumLoading(true);
-        await getUserAlbums(match.params.id).then((res:any) => {
-            setAlbum(res);
-            setAlbumLoading(false);
-        });
-    };
-
     useEffect(() => {
-        requestDetailUser();
-        requestPostsUser();
-        requestAlbumsUser();
-    }, [])
+        const requestData = async () : Promise<void> => {
+            await getUserDetail(match.params.id).then((res:any) => {
+                setUser(res);
+                setDetailLoading(false);
+            });
+            await getUserPosts(match.params.id).then((res:any) => {
+                setPosts(res);
+                setPostsLoading(false);
+            });
+            await getUserAlbums(match.params.id).then((res:any) => {
+                setAlbum(res);
+                setAlbumLoading(false);
+            });
+        }
+        requestData();
+    }, []);
 
     return (
         <Container>
