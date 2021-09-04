@@ -8,5 +8,12 @@ export const routes = [
         path: '/',
         exact: true,
         component: Home,
-      },
+    },
+    {
+        name: 'User Detail',
+        path: '/user/:id',
+        exact: false,
+        // component: Home,
+    },
+
 ]
