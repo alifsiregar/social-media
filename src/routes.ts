@@ -1,5 +1,6 @@
 import {
-    Home
+    Home,
+    UserDetail
 } from './pages';
 
 export const routes = [
@@ -8,5 +9,12 @@ export const routes = [
         path: '/',
         exact: true,
         component: Home,
-      },
+    },
+    {
+        name: 'User Detail',
+        path: '/user/:id',
+        exact: false,
+        component: UserDetail,
+    },
+
 ]
