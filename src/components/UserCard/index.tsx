@@ -4,12 +4,16 @@ import {
     Button
 } from './UserCard.styles';
 
-const index = () => {
+const index : React.FC<{user :{
+    id: number,
+    name: string,
+    username: string
+}}> = ({user}) => {
     return (
         <Container>
             <UserInfo>
-                <h2>Bret</h2>
-                <span>Leanne Graham</span>
+                <h2>{user.username}</h2>
+                <span>{user.name}</span>
             </UserInfo>
             <Button>
                 DETAILS

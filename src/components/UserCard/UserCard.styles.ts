@@ -3,10 +3,22 @@ import styled from "styled-components";
 export const Container = styled.div`
     color: #171717;
     background-color: #EDEDED;
+    border-radius: 10px;
     display: flex;
     justify-content: space-between;
-    /* align-items: center; */
+    margin: 0 0 15px 0;
     padding: 1rem;
+    animation-duration: 1.5s;
+    animation-name: slidein;
+
+    @keyframes slidein {
+        from {
+            margin-top: 100%;
+        }
+        to {
+            margin-top: 0%;
+        }
+    }
 `;
 
 export const UserInfo = styled.div`
