@@ -17,7 +17,7 @@ const UserPostsCard : React.FC<{posts :{
                 <h2>{posts.title}</h2>
                 <span>{posts.body}</span>
             </UserInfo>
-            <ButtonNav to={`/user/${posts.id}`}>
+            <ButtonNav to={`/user/${posts.userId}/post/${posts.id}`}>
                 DETAILS
             </ButtonNav>
         </Container>
