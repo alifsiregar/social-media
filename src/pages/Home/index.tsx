@@ -25,7 +25,7 @@ const Home = () => {
 
     return (
         <Container>
-            <h1>Social Media Home</h1>
+            <h1>Home</h1>
             {user.length !== 0 ? 
                 user.map((item) => {
                     return <UserCard key={item.id} user={item} />
