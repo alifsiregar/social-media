@@ -1,11 +1,19 @@
 import {
-    Container
+    Container,
+    UserInfo,
+    Button
 } from './UserCard.styles';
 
 const index = () => {
     return (
         <Container>
-           <h2>Hello World!</h2> 
+            <UserInfo>
+                <h2>Bret</h2>
+                <span>Leanne Graham</span>
+            </UserInfo>
+            <Button>
+                DETAILS
+            </Button>
         </Container>
     )
 }
