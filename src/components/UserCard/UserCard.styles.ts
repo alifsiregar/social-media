@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
     color: #171717;
@@ -25,9 +26,13 @@ export const UserInfo = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    max-width: 65%;
 
     h2 {
         margin: 0;
+        white-space: nowrap; 
+        overflow: hidden;
+        text-overflow: ellipsis; 
     }
 
     span{
@@ -35,7 +40,7 @@ export const UserInfo = styled.div`
     }
 `;
 
-export const Button = styled.button`
+export const ButtonNav = styled(Link)`
     background-color: #171717;
     color: #EDEDED;
     border: 0;
@@ -44,8 +49,8 @@ export const Button = styled.button`
     font-weight: 600;
     cursor: pointer;
     transition: 300ms ease-in-out;
-
-    &:hover {
-        padding: 0 2rem;
-    }
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    justify-content: center;
 `;

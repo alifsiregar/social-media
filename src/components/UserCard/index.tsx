@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom';
 import {
     Container,
     UserInfo,
-    Button
+    ButtonNav,
 } from './UserCard.styles';
 
-const index : React.FC<{user :{
+const UserCard : React.FC<{user :{
     id: number,
     name: string,
     username: string
@@ -15,11 +16,11 @@ const index : React.FC<{user :{
                 <h2>{user.username}</h2>
                 <span>{user.name}</span>
             </UserInfo>
-            <Button>
+            <ButtonNav to={`/user/${user.id}`}>
                 DETAILS
-            </Button>
+            </ButtonNav>
         </Container>
     )
 }
 
-export default index
+export default UserCard
