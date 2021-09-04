@@ -1,24 +1,38 @@
 import { useState, useEffect } from 'react';
 import {
-    Container
+    Container,
 } from './Home.styles';
+import UserCard from '../../components/UserCard';
 import { getAllUser } from '../../services';
 
 const Home = () => {
 
-    const getAllusers = async () : Promise<void> => {
+    const [user, setUser] = useState<{
+        id: number,
+        username: string,
+        name: string
+    }[]>([]);
+
+    const requestAllUser = async () : Promise<void> => {
         await getAllUser().then((res:any) => {
-            console.log(res)
+            setUser(res)
         });
     };
 
     useEffect(() => {
-        getAllusers();
+        requestAllUser();
     }, [])
 
     return (
         <Container>
             <h1>Social Media Home</h1>
+            {user.length !== 0 ? 
+                user.map((item) => {
+                    return <UserCard key={item.id} user={item} />
+                })
+                    :
+                null
+            }
         </Container>
     )
 }
