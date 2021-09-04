@@ -15,7 +15,7 @@ export const getAllUser = async () : Promise<string> => {
   }
 };
 
-export const getUserDetail = async (id: number) : Promise<string> => {
+export const getUserDetail = async (id: string) : Promise<string> => {
   try {
     const json = await axios({
       url: `https://jsonplaceholder.typicode.com/users/${id}`,
