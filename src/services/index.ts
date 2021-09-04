@@ -59,3 +59,18 @@ export const getUserAlbums = async (id: string) : Promise<string> => {
     return 'Error';
   }
 };
+
+export const getPostDetail = async (postId: string) : Promise<string> => {
+  try {
+    const json = await axios({
+      url: `https://jsonplaceholder.typicode.com/posts/${postId}`,
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    return json.data;
+  } catch (e) {
+    return 'Error';
+  }
+};
