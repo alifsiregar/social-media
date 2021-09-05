@@ -89,3 +89,33 @@ export const getPostComments = async (postId: string) : Promise<string> => {
     return 'Error';
   }
 };
+
+export const getAlbumDetail = async (albumId: string) : Promise<string> => {
+  try {
+    const json = await axios({
+      url: `https://jsonplaceholder.typicode.com/albums/${albumId}/`,
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    return json.data;
+  } catch (e) {
+    return 'Error';
+  }
+};
+
+export const getAlbumPhotos = async (albumId: string) : Promise<string> => {
+  try {
+    const json = await axios({
+      url: `https://jsonplaceholder.typicode.com/albums/${albumId}/photos`,
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    return json.data;
+  } catch (e) {
+    return 'Error';
+  }
+};
