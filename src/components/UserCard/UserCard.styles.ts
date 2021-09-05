@@ -37,6 +37,9 @@ export const UserInfo = styled.div`
 
     span{
         font-size: 14px;
+        white-space: nowrap; 
+        overflow: hidden;
+        text-overflow: ellipsis; 
     }
 `;
 

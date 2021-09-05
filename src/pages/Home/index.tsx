@@ -30,7 +30,7 @@ const Home = () => {
                 <h1>Home</h1>
                 {user.length !== 0 ? 
                     user.map((item) => {
-                        return <UserCard key={item.id} user={item} />
+                        return <UserCard key={item.id} title={item.username} body={item.name} link={`/user/${item.id}`} />
                     })
                         :
                     null

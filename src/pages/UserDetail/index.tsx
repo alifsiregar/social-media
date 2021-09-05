@@ -12,8 +12,7 @@ import {
     getUserPosts,
     getUserAlbums
 } from '../../services';
-import UserPostsCard from '../../components/UserPostsCard';
-import UserAlbumsCard from '../../components/UserAlbumsCard';
+import UserCard from '../../components/UserCard';
 
 const UserDetail = ({ match }: RouteComponentProps<{id:string}>) => {
 
@@ -161,7 +160,7 @@ const UserDetail = ({ match }: RouteComponentProps<{id:string}>) => {
                     <>
                         <h1>{user.username}'s Posts</h1>
                         {posts.map((item) => {
-                            return <UserPostsCard key={item.id} posts={item} />
+                            return <UserCard key={item.id} title={item.title} body={item.body} link={`/user/${item.userId}/post/${item.id}`} />
                         })}
                     </>
                         :
@@ -174,7 +173,7 @@ const UserDetail = ({ match }: RouteComponentProps<{id:string}>) => {
                     <>
                         <h1>{user.username}'s Albums</h1>
                         {album.map((item) => {
-                            return <UserAlbumsCard key={item.id} album={item} />
+                            return <UserCard key={item.id} title={item.title} link={`/user/${item.userId}/album/${item.id}`} />
                         })}
                     </>
                         :
