@@ -2,7 +2,8 @@ import {
     Home,
     UserDetail,
     PostDetail,
-    AlbumDetail
+    AlbumDetail,
+    PhotoDetail
 } from './pages';
 
 export const routes = [
@@ -27,7 +28,13 @@ export const routes = [
     {
         name: 'Album Detail',
         path: '/user/:id/album/:albumId',
-        exact: false,
+        exact: true,
         component: AlbumDetail,
+    },
+    {
+        name: 'Album Detail',
+        path: '/user/:id/album/:albumId/photo/:photoId',
+        exact: false,
+        component: PhotoDetail,
     },
 ]
