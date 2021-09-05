@@ -14,7 +14,7 @@ const UserPostsCard : React.FC<{album :{
             <UserInfo>
                 <h2>{album.title}</h2>
             </UserInfo>
-            <ButtonNav to={`/user/${album.id}`}>
+            <ButtonNav to={`/user/${album.userId}/album/${album.id}`}>
                 DETAILS
             </ButtonNav>
         </Container>
