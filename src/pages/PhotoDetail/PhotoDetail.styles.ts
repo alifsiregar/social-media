@@ -33,9 +33,18 @@ export const LeftArrow = styled(Ai.AiOutlineArrowLeft)`
 `;
 
 export const PhotoContainer = styled.div`
+    margin: 20px 0 0 0;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    img{
+        max-width: 100%;
+    }
+
+    h1{
+        text-align: center;
+    }
 `;
