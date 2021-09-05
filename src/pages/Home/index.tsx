@@ -5,15 +5,11 @@ import {
 } from './Home.styles';
 import ButtonCard from '../../components/ButtonCard';
 import { getAllUser } from '../../services';
+import { IState } from '../../interfaces';
 
 const Home = () => {
 
-    const [user, setUser] = useState<{
-        id: number,
-        username: string,
-        name: string
-    }[]>([]);
-
+    const [user, setUser] = useState<IState['userState']>([]);
     const requestAllUser = async () : Promise<void> => {
         await getAllUser().then((res:any) => {
             setUser(res)

@@ -5,8 +5,9 @@ import {
     Button,
     ButtonNav,
 } from './TwoButtonsCard.styles';
+import { IState } from '../../interfaces';
 
-const TwoButtonsCard : React.FC<{title: string; body: string; link: string; onClick : React.MouseEventHandler<HTMLDivElement>}> = ({title, body, link, onClick}) => {
+const TwoButtonsCard : React.FC<IState['twoButtonsCardComponent']> = ({title, body, link, onClick}) => {
     return (
         <Container title="TwoButtonsCard">
             <UserInfo>

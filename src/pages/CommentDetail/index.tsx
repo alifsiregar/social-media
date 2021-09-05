@@ -11,18 +11,14 @@ import {
     getCommentDetail,
     updatePostComments
 } from '../../services';
+import { IState } from "../../interfaces";
 
 const CommentDetail = ({ match }: RouteComponentProps<{id: string; postId: string; commentId: string;}>) => {
 
     const [newCommentEmail, setNewCommentEmail] = useState<string>('');
     const [newCommentBody, setNewCommentBody] = useState<string>('');
     const [commentLoading, setCommentLoading] = useState(true);
-    const [comment, setComment] = useState<{
-        postId: number;
-        id: number;
-        email: string;
-        body: string;
-    }>({
+    const [comment, setComment] = useState<IState['commentState']>({
         postId: 0,
         id: 0,
         email: '',

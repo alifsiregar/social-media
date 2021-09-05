@@ -19,6 +19,7 @@ import {
 } from '../../services';
 import ButtonCard from '../../components/ButtonCard';
 import TwoButtonsCard from '../../components/TwoButtonsCard';
+import { IState } from '../../interfaces';
 
 const UserDetail = ({ match }: RouteComponentProps<{id:string}>) => {
 
@@ -28,21 +29,7 @@ const UserDetail = ({ match }: RouteComponentProps<{id:string}>) => {
     const [showNewPost, setShowNewPost] = useState<boolean>(false);
     const [newPostTitle, setNewPostTitle] = useState<string>('');
     const [newPostBody, setNewPostBody] = useState<string>('');
-    const [user, setUser] = useState<{
-        id: number;
-        username: string;
-        name: string;
-        email: string;
-        address:{
-            city: string;
-            zipcode: string
-        };
-        phone: string;
-        website: string;
-        company:{
-            name: string
-        }
-    }>({
+    const [user, setUser] = useState<IState['userDetailState']>({
         id: 0,
         username: '',
         name: '',
@@ -57,17 +44,8 @@ const UserDetail = ({ match }: RouteComponentProps<{id:string}>) => {
             name: ''
         }
     });
-    const [posts, setPosts] = useState<{
-        userId: number;
-        id: number;
-        title: string;
-        body: string;
-    }[]>([]);
-    const [album, setAlbum] = useState<{
-        userId: number;
-        id: number;
-        title: string;
-    }[]>([]);
+    const [posts, setPosts] = useState<IState['postsState']>([]);
+    const [album, setAlbum] = useState<IState['albumsState']>([]);
 
     const requestNewPost =  async () : Promise<void> => {
         await addUserPosts(match.params.id, newPostTitle, newPostBody).then((res:any) => {

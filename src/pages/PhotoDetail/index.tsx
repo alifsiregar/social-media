@@ -10,16 +10,12 @@ import {
 import {
     getPhotoDetail
 } from '../../services';
+import { IState } from "../../interfaces";
 
 const PhotoDetail = ({ match }: RouteComponentProps<{id: string; albumId: string; photoId: string;}>) => {
 
     const [photoLoading, setPhotoLoading] = useState(true);
-    const [photo, setPhoto] = useState<{
-        albumId: number;
-        id: number;
-        title: string;
-        url: string;
-    }>({
+    const [photo, setPhoto] = useState<IState['photoState']>({
         albumId: 0,
         id: 0,
         title: '',

@@ -12,26 +12,17 @@ import {
     getAlbumDetail,
     getAlbumPhotos
 } from '../../services';
+import { IState } from "../../interfaces";
 
 const AlbumDetail = ({ match }: RouteComponentProps<{id:string, albumId: string}>) => {
 
     const [albumPhotosLoading, setAlbumPhotosLoading] = useState<boolean>(true);
-    const [albumDetail, setAlbumDetail] = useState<{
-        userId: number;
-        id: number;
-        title: string;
-    }>({
+    const [albumDetail, setAlbumDetail] = useState<IState['albumDetailState']>({
         userId: 0,
         id: 0,
         title: ''
     });
-    const [albumPhotos, setAlbumPhotos] = useState<{
-        albumId: number;
-        id: number;
-        title: string;
-        url: string;
-        thumbnailUrl: string;
-    }[]>([]);
+    const [albumPhotos, setAlbumPhotos] = useState<IState['albumPhotosState']>([]);
 
     useEffect(() => {
         const requestData = async () : Promise<void> => {

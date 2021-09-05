@@ -2,12 +2,9 @@ import {
     Container,
     NavLink
 } from './PhotosCard.styles';
+import { IState } from '../../interfaces';
 
-const PhotosCard: React.FC<{
-    image: string;
-    title: string;
-    link: string;
-}> = ({image, title, link}) => {
+const PhotosCard: React.FC<IState['photosCardComponent']> = ({image, title, link}) => {
     return (
         <NavLink to={link}>
             <Container title="PhotosCard">

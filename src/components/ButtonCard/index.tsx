@@ -3,8 +3,9 @@ import {
     UserInfo,
     ButtonNav,
 } from './ButtonCard.styles';
+import { IState } from '../../interfaces';
 
-const ButtonCard : React.FC<{title: string; body?: string; link: string;}> = ({title, body, link}) => {
+const ButtonCard : React.FC<IState['buttonCardComponent']> = ({title, body, link}) => {
     return (
         <Container title="ButtonCard">
             <UserInfo>

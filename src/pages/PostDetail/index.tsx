@@ -15,6 +15,7 @@ import {
     deletePostComments
 } from '../../services';
 import TwoButtonsCard from '../../components/TwoButtonsCard';
+import { IState } from '../../interfaces';
 
 const PostDetail = ({ match }: RouteComponentProps<{id:string, postId: string}>) => {
 
@@ -24,23 +25,13 @@ const PostDetail = ({ match }: RouteComponentProps<{id:string, postId: string}>)
     const [newCommentBody, setNewCommentBody] = useState<string>('');
     const [postLoading, setPostLoading] = useState(true);
     const [commentLoading, setCommentLoading] = useState(true);
-    const [post, setPost] = useState<{
-        userId: number;
-        id: number;
-        title: string;
-        body: string;
-    }>({
+    const [post, setPost] = useState<IState['postState']>({
         userId: 0,
         id: 0,
         title: '',
         body: ''
     });
-    const [comments, setComments] = useState<{
-        postId: number;
-        id: number;
-        email: string;
-        body: string;
-    }[]>([]);
+    const [comments, setComments] = useState<IState['commentsState']>([]);
 
     const requestUpdatePost =  async () : Promise<void> => {
         await updateUserPosts(match.params.postId, newPostTitle, newPostBody, match.params.id).then((res:any) => {
