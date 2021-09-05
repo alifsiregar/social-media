@@ -1,7 +1,8 @@
 import {
     Home,
     UserDetail,
-    PostDetail
+    PostDetail,
+    AlbumDetail
 } from './pages';
 
 export const routes = [
@@ -24,9 +25,9 @@ export const routes = [
         component: PostDetail,
     },
     {
-        name: 'Post Detail',
+        name: 'Album Detail',
         path: '/user/:id/album/:albumId',
         exact: false,
-        component: PostDetail,
+        component: AlbumDetail,
     },
 ]
