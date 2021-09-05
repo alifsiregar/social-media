@@ -15,7 +15,6 @@ import {
 
 const AlbumDetail = ({ match }: RouteComponentProps<{id:string, albumId: string}>) => {
 
-    const [albumDetailLoading, setAlbumDetailLoading] = useState<boolean>(true);
     const [albumPhotosLoading, setAlbumPhotosLoading] = useState<boolean>(true);
     const [albumDetail, setAlbumDetail] = useState<{
         userId: number;
@@ -38,7 +37,6 @@ const AlbumDetail = ({ match }: RouteComponentProps<{id:string, albumId: string}
         const requestData = async () : Promise<void> => {
             await getAlbumDetail(match.params.albumId).then((res:any) => {
                 setAlbumDetail(res);
-                setAlbumDetailLoading(false);
             });
             await getAlbumPhotos(match.params.albumId).then((res:any) => {
                 setAlbumPhotos(res);
@@ -46,7 +44,7 @@ const AlbumDetail = ({ match }: RouteComponentProps<{id:string, albumId: string}
             })
         }
         requestData();
-    }, []);
+    }, [match.params.albumId]);
 
     return (
         <Container>
@@ -57,13 +55,15 @@ const AlbumDetail = ({ match }: RouteComponentProps<{id:string, albumId: string}
                         Profile
                     </h4>
                 </NavLink>
-                <h1>{albumDetail.title}</h1>
-                {!albumPhotosLoading ? 
-                    <PhotosContainer>
-                        {albumPhotos.map((item) => {
-                            return <PhotosCard key={item.id} image={item.thumbnailUrl} title={item.title} link={`/user/${match.params.id}/album/${item.albumId}/photo/${item.id}`} />
-                        })}
-                    </PhotosContainer>
+                {!albumPhotosLoading ?
+                    <>
+                        <h1>{albumDetail.title}</h1>
+                        <PhotosContainer>
+                            {albumPhotos.map((item) => {
+                                return <PhotosCard key={item.id} image={item.thumbnailUrl} title={item.title} link={`/user/${match.params.id}/album/${item.albumId}/photo/${item.id}`} />
+                            })}
+                        </PhotosContainer>
+                    </>
                     :
                     <h1>
                         Loading...
