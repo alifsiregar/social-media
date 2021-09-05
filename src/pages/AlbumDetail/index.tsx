@@ -61,7 +61,7 @@ const AlbumDetail = ({ match }: RouteComponentProps<{id:string, albumId: string}
                 {!albumPhotosLoading ? 
                     <PhotosContainer>
                         {albumPhotos.map((item) => {
-                            return <PhotosCard key={item.id} image={item.thumbnailUrl} title={item.title} />
+                            return <PhotosCard key={item.id} image={item.thumbnailUrl} title={item.title} link={`/user/${match.params.id}/album/${item.albumId}/photo/${item.id}`} />
                         })}
                     </PhotosContainer>
                     :
