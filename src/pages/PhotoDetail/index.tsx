@@ -39,7 +39,7 @@ const PhotoDetail = ({ match }: RouteComponentProps<{id: string; albumId: string
     return (
         <Container>
             <ContentContainer>
-                <NavLink to={`/user/${match.params.id}/album/${photo.albumId}`}>
+                <NavLink to={`/user/${match.params.id}/album/${match.params.albumId}`}>
                     <LeftArrow />
                     <h4>
                         Album
