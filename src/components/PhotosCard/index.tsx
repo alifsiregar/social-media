@@ -10,7 +10,7 @@ const PhotosCard: React.FC<{
 }> = ({image, title, link}) => {
     return (
         <NavLink to={link}>
-            <Container>
+            <Container title="PhotosCard">
                 <img src={image} alt={title} />
                 <h3>
                     {title}

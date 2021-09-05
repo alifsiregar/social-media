@@ -8,7 +8,7 @@ import {
 
 const TwoButtonsCard : React.FC<{title: string; body: string; link: string; onClick : React.MouseEventHandler<HTMLDivElement>}> = ({title, body, link, onClick}) => {
     return (
-        <Container>
+        <Container title="TwoButtonsCard">
             <UserInfo>
                 <h3>{title}</h3>
                 <span>{body}</span>

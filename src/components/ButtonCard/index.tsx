@@ -6,7 +6,7 @@ import {
 
 const ButtonCard : React.FC<{title: string; body?: string; link: string;}> = ({title, body, link}) => {
     return (
-        <Container>
+        <Container title="ButtonCard">
             <UserInfo>
                 <h2>{title}</h2>
                 {body && <span>{body}</span>}

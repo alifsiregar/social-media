@@ -25,7 +25,7 @@ const Home = () => {
     }, [])
 
     return (
-        <Container>
+        <Container title="Home">
             <ContentContainer>
                 <h1>Home</h1>
                 {user.length !== 0 ? 
