@@ -10,8 +10,8 @@ export const getAllUser = async () : Promise<string> => {
       },
     });
     return json.data;
-  } catch (e) {
-    return 'Error';
+  } catch (e: any) {
+    return e;
   }
 };
 
@@ -25,8 +25,8 @@ export const getUserDetail = async (id: string) : Promise<string> => {
       },
     });
     return json.data;
-  } catch (e) {
-    return 'Error';
+  } catch (e: any) {
+    return e;
   }
 };
 
@@ -40,8 +40,8 @@ export const getUserPosts = async (id: string) : Promise<string> => {
       },
     });
     return json.data;
-  } catch (e) {
-    return 'Error';
+  } catch (e: any) {
+    return e;
   }
 };
 
@@ -55,8 +55,8 @@ export const getUserAlbums = async (id: string) : Promise<string> => {
       },
     });
     return json.data;
-  } catch (e) {
-    return 'Error';
+  } catch (e: any) {
+    return e;
   }
 };
 
@@ -70,8 +70,8 @@ export const getPostDetail = async (postId: string) : Promise<string> => {
       },
     });
     return json.data;
-  } catch (e) {
-    return 'Error';
+  } catch (e: any) {
+    return e;
   }
 };
 
@@ -85,8 +85,8 @@ export const getPostComments = async (postId: string) : Promise<string> => {
       },
     });
     return json.data;
-  } catch (e) {
-    return 'Error';
+  } catch (e: any) {
+    return e;
   }
 };
 
@@ -100,8 +100,8 @@ export const getAlbumDetail = async (albumId: string) : Promise<string> => {
       },
     });
     return json.data;
-  } catch (e) {
-    return 'Error';
+  } catch (e: any) {
+    return e;
   }
 };
 
@@ -115,8 +115,8 @@ export const getAlbumPhotos = async (albumId: string) : Promise<string> => {
       },
     });
     return json.data;
-  } catch (e) {
-    return 'Error';
+  } catch (e: any) {
+    return e;
   }
 };
 
@@ -130,7 +130,7 @@ export const getPhotoDetail = async (photoId: string) : Promise<string> => {
       },
     });
     return json.data;
-  } catch (e) {
-    return 'Error';
+  } catch (e: any) {
+    return e;
   }
 };
