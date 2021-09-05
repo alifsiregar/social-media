@@ -1,18 +1,22 @@
 import {
-    Container
+    Container,
+    NavLink
 } from './PhotosCard.styles';
 
 const PhotosCard: React.FC<{
     image: string;
     title: string;
-}> = ({image, title}) => {
+    link: string;
+}> = ({image, title, link}) => {
     return (
-        <Container>
-            <img src={image} alt="" />
-            <h3>
-                {title}
-            </h3>
-        </Container>
+        <NavLink to={link}>
+            <Container>
+                <img src={image} alt={title} />
+                <h3>
+                    {title}
+                </h3>
+            </Container>
+        </NavLink>
     )
 }
 
