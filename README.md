@@ -3,7 +3,7 @@
 "Social Media Dashboard" is a website to manage and overview users made in React JS with Typescript. This project is made in order to complete one of the recruitment stage of Kumparan.
 
 ## About
-This project is made in React JS with typescript with several other libraries. There are 8 main features of this website:
+This project is a Single Page Application (SPA) and responsive website made in React JS with typescript and several other libraries. There are 8 main features of this website:
 
 1. View list of users.
 2. View list of posts of each user
@@ -25,7 +25,7 @@ There are 6 pages in this website:
 
 In order to view all available users, navigate to the home page. To see the detail of each user, click the `DETAILS` button on the user card. This will bring you to the user detail page. In here, you can see all the posts and albums that the user currently have. You can also add additional posts by clicking the `Add New Post` button and filling in the required fields. To delete a post, click the `DELETE` button on the post card. To see the details of a post, click the `DETAILS` button to navigate to the post detail page. Here, you can edit the post if you'd like by filling in the required fields and clicking the `SUBMIT` button. You can also see the comments of the post and also add additional comments. To delete a comment, simply click the `DELETE` button on the comment card. To edit a comment, click the `DETAILS` button and fill in the required fields. Finally, to see the photos inside the album that the user have, click the `DETAILS` button on the album card in the user detail page. This will bring you to the album detail page. To see the detail of a photo, click on the card of the photo you'd like to see. This will bring you to the photo detail page, where the title and a bigger resolution image is available.
 
-All data are provided by the JSONPlaceholder [website](https://jsonplaceholder.typicode.com/).
+All data are provided by [JSONPlaceholder](https://jsonplaceholder.typicode.com/).
 
 ## Tech Stack
 
@@ -45,7 +45,7 @@ Most of the important folders and files are inside the `src` folder. Inside, you
 3. `routes.tsx`
 4. `Global.styles.ts`
 
-`App.tsx` is the root file where all the components are placed. `routes.tsx` is where the routes are placed, and ``Global.styles.ts` is the file for global styles.
+`App.tsx` is the root file where all the components are placed. `routes.tsx` is where the routes are placed, and `Global.styles.ts` is the file for global styles.
 
 Aside from the files, you will also find 4 __folders__:
 
@@ -69,13 +69,19 @@ To deploy the project, I am using JamesIves's [Github Pages Deploy Action](https
 
 ## Documentation
 
-In order to start the app in development mode,  you can run this syntax in the project directory:
+In order to start the app in development mode, you can run this syntax in the project directory:
 
 ### `npm start`
 
 By default, the app will open in [http://localhost:3000](http://localhost:3000). The page also has hot reload, which means that it will refresh if you make any edits.
 
-If you want to build the app for production,  you can run this syntax in the project directory:
+To test the app, run this syntax in the project directory:
+
+### `npm run test`
+
+This will run all tests available on the project, all of them are inside the `__test__` folder inside each components and the home page folder.
+
+If you want to build the app for production, you can run this syntax in the project directory:
 
 ### `npm run build`
 
