@@ -33,12 +33,30 @@ export const ButtonContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    width: 225px;
+    width: max-content;
     margin: 0 0 0 15px;
 
     @media only screen and (min-width: 800px) {
         flex-direction: row;
+        width: 225px;
     }
+`;
+
+export const Button = styled.div`
+    margin:  5px 0 5px 0;
+    height: 40px;
+    background-color: #171717;
+    color: #EDEDED;
+    border: 0;
+    padding: 0 1rem;
+    border-radius: 50px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 300ms ease-in-out;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    justify-content: center;
 `;
 
 export const ButtonNav = styled(Link)`
