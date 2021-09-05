@@ -46,7 +46,7 @@ const PostDetail = ({ match }: RouteComponentProps<{id:string, postId: string}>)
             })
         }
         requestData();
-    }, []);
+    }, [match.params.postId]);
 
     return (
         <Container>

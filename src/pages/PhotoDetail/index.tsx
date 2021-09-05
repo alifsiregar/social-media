@@ -34,7 +34,7 @@ const PhotoDetail = ({ match }: RouteComponentProps<{id: string; albumId: string
             });
         }
         requestData();
-    }, []);
+    }, [match.params.photoId]);
 
     return (
         <Container>
