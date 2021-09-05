@@ -3,7 +3,8 @@ import {
     UserDetail,
     PostDetail,
     AlbumDetail,
-    PhotoDetail
+    PhotoDetail,
+    CommentDetail
 } from './pages';
 
 export const routes = [
@@ -22,7 +23,7 @@ export const routes = [
     {
         name: 'Post Detail',
         path: '/user/:id/post/:postId',
-        exact: false,
+        exact: true,
         component: PostDetail,
     },
     {
@@ -32,9 +33,15 @@ export const routes = [
         component: AlbumDetail,
     },
     {
-        name: 'Album Detail',
+        name: 'Photo Detail',
         path: '/user/:id/album/:albumId/photo/:photoId',
         exact: false,
         component: PhotoDetail,
+    },
+    {
+        name: 'Comment Detail',
+        path: '/user/:id/post/:postId/comment/:commentId',
+        exact: false,
+        component: CommentDetail,
     },
 ]
