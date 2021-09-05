@@ -6,19 +6,28 @@ import {
     NavLink,
     LeftArrow,
     InfoItem,
+    PostHeader,
+    PostForm,
+    Plus
 } from './UserDetail.styles';
 import { 
     getUserDetail,
     getUserPosts,
-    getUserAlbums
+    getUserAlbums,
+    addUserPosts,
+    deleteUserPosts
 } from '../../services';
 import UserCard from '../../components/UserCard';
+import CommentsCard from '../../components/CommentsCard';
 
 const UserDetail = ({ match }: RouteComponentProps<{id:string}>) => {
 
     const [detailLoading, setDetailLoading] = useState<boolean>(true);
     const [postsLoading, setPostsLoading] = useState<boolean>(true);
     const [albumLoading, setAlbumLoading] = useState<boolean>(true);
+    const [showNewPost, setShowNewPost] = useState<boolean>(false);
+    const [newPostTitle, setNewPostTitle] = useState<string>('');
+    const [newPostBody, setNewPostBody] = useState<string>('');
     const [user, setUser] = useState<{
         id: number;
         username: string;
@@ -60,6 +69,31 @@ const UserDetail = ({ match }: RouteComponentProps<{id:string}>) => {
         title: string;
     }[]>([]);
 
+    const requestNewPost =  async () : Promise<void> => {
+        await addUserPosts(match.params.id, newPostTitle, newPostBody).then((res:any) => {
+            setPosts(prevState => [...prevState, res]);
+        }).then(() => {
+            setNewPostTitle('');
+            setNewPostBody('');
+            alert('Post added!');
+        });
+    }
+
+    const deletePost = async (id: string) : Promise<void> => {
+        await deleteUserPosts(id).then((res:any) => {
+            setPosts(posts.filter((item) => (item.id).toString() !== id))
+        }).then(() => alert('Post deleted!'));
+    }
+
+    const handleSubmit = (e:any) => {
+        e.preventDefault();
+        requestNewPost();
+    }
+
+    const handleDelete = (id: string) => {
+        deletePost(id);
+    }
+
     useEffect(() => {
         const requestData = async () : Promise<void> => {
             await getUserDetail(match.params.id).then((res:any) => {
@@ -76,7 +110,7 @@ const UserDetail = ({ match }: RouteComponentProps<{id:string}>) => {
             });
         }
         requestData();
-    }, []);
+    }, [match.params.id]);
 
     return (
         <Container>
@@ -152,15 +186,36 @@ const UserDetail = ({ match }: RouteComponentProps<{id:string}>) => {
                     </>
                     :
                     <h1>
-                    Loading Profile... 
+                        Loading Profile... 
                     </h1>
                 }
                 
                 {!postsLoading ?
                     <>
-                        <h1>{user.username}'s Posts</h1>
+                        <PostHeader>
+                            <h1>{user.username}'s Posts</h1>
+                            <div onClick={() => setShowNewPost(prevState => !prevState)}>
+                                <Plus />
+                                <h4>Add New Post</h4>
+                            </div>
+                        </PostHeader>
+                        {showNewPost && 
+                            <PostForm>
+                                <form onSubmit={handleSubmit}>
+                                    <label>
+                                        Title
+                                        <input onChange={(e) => setNewPostTitle(e.target.value)} value={newPostTitle} type="text" name="title" placeholder="New title here!" />
+                                    </label>
+                                    <label>
+                                        Body
+                                        <input onChange={(e) => setNewPostBody(e.target.value)} value={newPostBody} type="text" name="body" placeholder="New body here!" />
+                                    </label>
+                                    <input className="submit-btn" type="submit" value="Submit" />
+                                </form>
+                            </PostForm>
+                        }
                         {posts.map((item) => {
-                            return <UserCard key={item.id} title={item.title} body={item.body} link={`/user/${item.userId}/post/${item.id}`} />
+                            return <CommentsCard key={item.id} title={item.title} body={item.body} link={`/user/${item.userId}/post/${item.id}`} onClick={() => handleDelete((item.id).toString())} />
                         })}
                     </>
                         :
