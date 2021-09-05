@@ -23,4 +23,10 @@ export const routes = [
         exact: false,
         component: PostDetail,
     },
+    {
+        name: 'Post Detail',
+        path: '/user/:id/album/:albumId',
+        exact: false,
+        component: PostDetail,
+    },
 ]
