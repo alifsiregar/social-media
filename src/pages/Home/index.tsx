@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import {
     Container,
+    ContentContainer
 } from './Home.styles';
 import UserCard from '../../components/UserCard';
 import { getAllUser } from '../../services';
@@ -25,14 +26,16 @@ const Home = () => {
 
     return (
         <Container>
-            <h1>Home</h1>
-            {user.length !== 0 ? 
-                user.map((item) => {
-                    return <UserCard key={item.id} user={item} />
-                })
-                    :
-                null
-            }
+            <ContentContainer>
+                <h1>Home</h1>
+                {user.length !== 0 ? 
+                    user.map((item) => {
+                        return <UserCard key={item.id} user={item} />
+                    })
+                        :
+                    null
+                }
+            </ContentContainer>
         </Container>
     )
 }

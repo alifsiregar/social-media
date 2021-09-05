@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import {
     Container,
+    ContentContainer,
     NavLink,
     LeftArrow,
     InfoItem,
@@ -80,106 +81,108 @@ const UserDetail = ({ match }: RouteComponentProps<{id:string}>) => {
 
     return (
         <Container>
-            <NavLink to={'/'}>
-                <LeftArrow />
-                <h4>
-                    Home
-                </h4>
-            </NavLink>
+            <ContentContainer>
+                <NavLink to={'/'}>
+                    <LeftArrow />
+                    <h4>
+                        Home
+                    </h4>
+                </NavLink>
 
-            {!detailLoading ?
-                <>
-                <h1>{user.username}'s Profile</h1>
-                <div>
-                    <InfoItem>
-                        <h3>
-                            Username
-                        </h3>
-                        <span>
-                            {user.username}
-                        </span>
-                    </InfoItem>
-                    <InfoItem>
-                        <h3>
-                            Full Name
-                        </h3>
-                        <span>
-                            {user.name}
-                        </span>
-                    </InfoItem>
-                    <InfoItem>
-                        <h3>
-                            Email
-                        </h3>
-                        <span>
-                            {user.email}
-                        </span>
-                    </InfoItem>
-                    <InfoItem>
-                        <h3>
-                            Address
-                        </h3>
-                        <span>
-                            {user.address.city}, {user.address.zipcode}
-                        </span>
-                    </InfoItem>
-                    <InfoItem>
-                        <h3>
-                            Phone Number
-                        </h3>
-                        <span>
-                            {user.phone}
-                        </span>
-                    </InfoItem>
-                    <InfoItem>
-                        <h3>
-                            Website
-                        </h3>
-                        <span>
-                            {user.website}
-                        </span>
-                    </InfoItem>
-                    <InfoItem>
-                        <h3>
-                            Company
-                        </h3>
-                        <span>
-                            {user.company.name}
-                        </span>
-                    </InfoItem>
-                </div>
-                </>
-                :
-                <h1>
-                   Loading Profile... 
-                </h1>
-            }
-            
-            {!postsLoading ?
-                <>
-                    <h1>{user.username}'s Posts</h1>
-                    {posts.map((item) => {
-                        return <UserPostsCard key={item.id} posts={item} />
-                    })}
-                </>
+                {!detailLoading ?
+                    <>
+                    <h1>{user.username}'s Profile</h1>
+                    <div>
+                        <InfoItem>
+                            <h3>
+                                Username
+                            </h3>
+                            <span>
+                                {user.username}
+                            </span>
+                        </InfoItem>
+                        <InfoItem>
+                            <h3>
+                                Full Name
+                            </h3>
+                            <span>
+                                {user.name}
+                            </span>
+                        </InfoItem>
+                        <InfoItem>
+                            <h3>
+                                Email
+                            </h3>
+                            <span>
+                                {user.email}
+                            </span>
+                        </InfoItem>
+                        <InfoItem>
+                            <h3>
+                                Address
+                            </h3>
+                            <span>
+                                {user.address.city}, {user.address.zipcode}
+                            </span>
+                        </InfoItem>
+                        <InfoItem>
+                            <h3>
+                                Phone Number
+                            </h3>
+                            <span>
+                                {user.phone}
+                            </span>
+                        </InfoItem>
+                        <InfoItem>
+                            <h3>
+                                Website
+                            </h3>
+                            <span>
+                                {user.website}
+                            </span>
+                        </InfoItem>
+                        <InfoItem>
+                            <h3>
+                                Company
+                            </h3>
+                            <span>
+                                {user.company.name}
+                            </span>
+                        </InfoItem>
+                    </div>
+                    </>
                     :
-                <h1>
-                    Loading Posts... 
-                </h1>
-            }
+                    <h1>
+                    Loading Profile... 
+                    </h1>
+                }
+                
+                {!postsLoading ?
+                    <>
+                        <h1>{user.username}'s Posts</h1>
+                        {posts.map((item) => {
+                            return <UserPostsCard key={item.id} posts={item} />
+                        })}
+                    </>
+                        :
+                    <h1>
+                        Loading Posts... 
+                    </h1>
+                }
 
-            {!albumLoading ?
-                <>
-                    <h1>{user.username}'s Albums</h1>
-                    {album.map((item) => {
-                        return <UserAlbumsCard key={item.id} album={item} />
-                    })}
-                </>
-                    :
-                <h1>
-                    Loading Albums... 
-                </h1>
-            }
+                {!albumLoading ?
+                    <>
+                        <h1>{user.username}'s Albums</h1>
+                        {album.map((item) => {
+                            return <UserAlbumsCard key={item.id} album={item} />
+                        })}
+                    </>
+                        :
+                    <h1>
+                        Loading Albums... 
+                    </h1>
+                }
+            </ContentContainer>
         </Container>
     )
 }
