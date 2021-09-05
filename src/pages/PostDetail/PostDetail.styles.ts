@@ -5,9 +5,8 @@ import * as Ai from "react-icons/ai";
 export const Container = styled.div`
     margin: 20px;
     color: #EDEDED;
-    max-width: 1366px;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
 
     h4{
         margin: 0;
@@ -16,10 +15,13 @@ export const Container = styled.div`
     span {
         text-align: justify;
     }
+`;
 
-    @media only screen and (min-width: 1386px) {
-        margin: 20px auto;
-    }
+export const ContentContainer = styled.div`
+    max-width: 1366px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 `;
 
 export const NavLink = styled(Link)`

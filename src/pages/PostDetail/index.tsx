@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import {
     Container,
+    ContentContainer,
     NavLink,
     LeftArrow
 } from './PostDetail.styles';
@@ -49,44 +50,44 @@ const PostDetail = ({ match }: RouteComponentProps<{id:string, postId: string}>)
 
     return (
         <Container>
-            <NavLink to={`/user/${match.params.id}`}>
-                <LeftArrow />
-                <h4>
-                    Profile
-                </h4>
-            </NavLink>
+            <ContentContainer>
+                <NavLink to={`/user/${match.params.id}`}>
+                    <LeftArrow />
+                    <h4>
+                        Profile
+                    </h4>
+                </NavLink>
 
-            {!postLoading ?
-                <> 
-                    <h1>
-                        {post.title}
-                    </h1>
-                    <span className="post-body">
-                        {post.body}
-                    </span>
-                </>
-                :
-                <h1>
-                   Loading Post... 
-                </h1>
-            }
-
-            {!commentLoading ?
-                <>
-                    <h1>
-                        Comments
-                    </h1>
-                    {comments.map((item) => {
-                        return <CommentsCard key={item.id} item={item} />
-                    })}
-                </>
+                {!postLoading ?
+                    <> 
+                        <h1>
+                            {post.title}
+                        </h1>
+                        <span className="post-body">
+                            {post.body}
+                        </span>
+                    </>
                     :
-                <h1>
+                    <h1>
                     Loading Post... 
-                </h1>
-            }
+                    </h1>
+                }
 
-            
+                {!commentLoading ?
+                    <>
+                        <h1>
+                            Comments
+                        </h1>
+                        {comments.map((item) => {
+                            return <CommentsCard key={item.id} item={item} />
+                        })}
+                    </>
+                        :
+                    <h1>
+                        Loading Post... 
+                    </h1>
+                }
+            </ContentContainer>
         </Container>
     )
 }
