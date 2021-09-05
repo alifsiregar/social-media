@@ -119,3 +119,18 @@ export const getAlbumPhotos = async (albumId: string) : Promise<string> => {
     return 'Error';
   }
 };
+
+export const getPhotoDetail = async (photoId: string) : Promise<string> => {
+  try {
+    const json = await axios({
+      url: `https://jsonplaceholder.typicode.com/photos/${photoId}`,
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    return json.data;
+  } catch (e) {
+    return 'Error';
+  }
+};
