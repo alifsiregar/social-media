@@ -35,3 +35,44 @@ export const LeftArrow = styled(Ai.AiOutlineArrowLeft)`
     background: none;
     margin: 0 10px 0 0;
 `;
+
+export const PostForm = styled.div`
+    margin: 20px 0 0 0;
+
+    h4{
+        margin: 0 0 10px 0;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    label {
+        display: flex;
+        flex-direction: column;
+        margin: 0 0 10px 0;
+    }
+
+    .submit-btn{
+        border-radius: 25px;
+        border: none;
+        background-color: #EDEDED;
+        color: #171717;
+        padding: 10px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    &.comment-form{
+        margin: 0 0 20px 0;
+    }
+
+    @media only screen and (min-width: 480px) {
+        width: 50%;
+
+        .submit-btn{
+            max-width: 250px;
+        }
+    }
+`;
