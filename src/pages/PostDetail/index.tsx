@@ -14,7 +14,7 @@ import {
     addPostComments,
     deletePostComments
 } from '../../services';
-import CommentsCard from '../../components/CommentsCard';
+import TwoButtonsCard from '../../components/TwoButtonsCard';
 
 const PostDetail = ({ match }: RouteComponentProps<{id:string, postId: string}>) => {
 
@@ -159,7 +159,7 @@ const PostDetail = ({ match }: RouteComponentProps<{id:string, postId: string}>)
                             </form>
                         </PostForm> 
                         {comments.map((item) => {
-                            return <CommentsCard key={item.id} title={item.email} body={item.body} link={`/user/${match.params.id}/post/${item.postId}/comment/${item.id}`} onClick={() => handleDelete((item.id).toString())} />
+                            return <TwoButtonsCard key={item.id} title={item.email} body={item.body} link={`/user/${match.params.id}/post/${item.postId}/comment/${item.id}`} onClick={() => handleDelete((item.id).toString())} />
                         })}
                     </>
                         :

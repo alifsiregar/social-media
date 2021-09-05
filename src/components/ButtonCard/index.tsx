@@ -2,9 +2,9 @@ import {
     Container,
     UserInfo,
     ButtonNav,
-} from './UserCard.styles';
+} from './ButtonCard.styles';
 
-const UserCard : React.FC<{title: string; body?: string; link: string;}> = ({title, body, link}) => {
+const ButtonCard : React.FC<{title: string; body?: string; link: string;}> = ({title, body, link}) => {
     return (
         <Container>
             <UserInfo>
@@ -18,4 +18,4 @@ const UserCard : React.FC<{title: string; body?: string; link: string;}> = ({tit
     )
 }
 
-export default UserCard
+export default ButtonCard

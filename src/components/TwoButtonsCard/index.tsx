@@ -4,9 +4,9 @@ import {
     ButtonContainer,
     Button,
     ButtonNav,
-} from './CommentsCard.styles';
+} from './TwoButtonsCard.styles';
 
-const CommentsCard : React.FC<{title: string; body: string; link: string; onClick : React.MouseEventHandler<HTMLDivElement>}> = ({title, body, link, onClick}) => {
+const TwoButtonsCard : React.FC<{title: string; body: string; link: string; onClick : React.MouseEventHandler<HTMLDivElement>}> = ({title, body, link, onClick}) => {
     return (
         <Container>
             <UserInfo>
@@ -25,4 +25,4 @@ const CommentsCard : React.FC<{title: string; body: string; link: string; onClic
     )
 }
 
-export default CommentsCard
+export default TwoButtonsCard

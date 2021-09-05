@@ -17,8 +17,8 @@ import {
     addUserPosts,
     deleteUserPosts
 } from '../../services';
-import UserCard from '../../components/UserCard';
-import CommentsCard from '../../components/CommentsCard';
+import ButtonCard from '../../components/ButtonCard';
+import TwoButtonsCard from '../../components/TwoButtonsCard';
 
 const UserDetail = ({ match }: RouteComponentProps<{id:string}>) => {
 
@@ -215,7 +215,7 @@ const UserDetail = ({ match }: RouteComponentProps<{id:string}>) => {
                             </PostForm>
                         }
                         {posts.map((item) => {
-                            return <CommentsCard key={item.id} title={item.title} body={item.body} link={`/user/${item.userId}/post/${item.id}`} onClick={() => handleDelete((item.id).toString())} />
+                            return <TwoButtonsCard key={item.id} title={item.title} body={item.body} link={`/user/${item.userId}/post/${item.id}`} onClick={() => handleDelete((item.id).toString())} />
                         })}
                     </>
                         :
@@ -228,7 +228,7 @@ const UserDetail = ({ match }: RouteComponentProps<{id:string}>) => {
                     <>
                         <h1>{user.username}'s Albums</h1>
                         {album.map((item) => {
-                            return <UserCard key={item.id} title={item.title} link={`/user/${item.userId}/album/${item.id}`} />
+                            return <ButtonCard key={item.id} title={item.title} link={`/user/${item.userId}/album/${item.id}`} />
                         })}
                     </>
                         :

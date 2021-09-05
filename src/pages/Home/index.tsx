@@ -3,7 +3,7 @@ import {
     Container,
     ContentContainer
 } from './Home.styles';
-import UserCard from '../../components/UserCard';
+import ButtonCard from '../../components/ButtonCard';
 import { getAllUser } from '../../services';
 
 const Home = () => {
@@ -30,7 +30,7 @@ const Home = () => {
                 <h1>Home</h1>
                 {user.length !== 0 ? 
                     user.map((item) => {
-                        return <UserCard key={item.id} title={item.username} body={item.name} link={`/user/${item.id}`} />
+                        return <ButtonCard key={item.id} title={item.username} body={item.name} link={`/user/${item.id}`} />
                     })
                         :
                     null
